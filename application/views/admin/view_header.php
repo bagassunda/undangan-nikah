@@ -159,6 +159,12 @@
 						</a>
 					</li>
 
+					<li class="treeview <?php if(($final_url_other == 'admin'.'/invitation') || ($final_url_other == 'admin'.'/guestbook/add') || ($final_url_other == 'admin'.'/guestbook/edit')) {echo 'active';} ?>">
+						<a href="<?php echo base_url(); ?>admin/invitation">
+							<i class="fa fa-address-card-o" aria-hidden="true"></i><span>Data Invitation</span>
+						</a>
+					</li>
+
 				</ul>
 			</section>
 		</aside>

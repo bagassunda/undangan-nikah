@@ -185,14 +185,14 @@ if (!$this->session->userdata('id')) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Google Calendar </label>
 							<div class="col-sm-9">
-								<input type="text" name="google_calendar" class="form-control" value="<?php echo $undangan['google_calendar']; ?>">
+							<input type="text" name="google_calendar" class="form-control" value="<?php echo isset($undangan['google_calendar']) ? $undangan['google_calendar'] : ''; ?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label">Google Map Direction </label>
 							<div class="col-sm-9">
-								<input type="text" name="google_map_direction" class="form-control" value="<?php echo $undangan['google_map_direction']; ?>">
+								<input type="text" name="google_map_direction" class="form-control" value="<?php echo $undangan['google_map_direction'] ?? ''; ?>">
 							</div>
 						</div>
 					</div>

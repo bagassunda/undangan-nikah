@@ -16,8 +16,10 @@ class Wedding extends CI_Controller
 			$data['error'] = '';
 			$data['success'] = '';
 
-			$data['undangan'] = $this->Model_wedding->show();
-			$header['setting'] = $this->Model_wedding->get_setting_data();
+			$userId = $this->session->userdata('id');
+
+			$data['undangan'] = $this->Model_wedding->show($userId);
+			$header['setting'] = $this->Model_wedding->get_setting_data($userId);
 
 
 			$this->load->view('admin/view_header',$header);
@@ -36,10 +38,13 @@ class Wedding extends CI_Controller
 			$data['error'] = '';
 			$data['success'] = '';
 
-			$data['undangan'] = $this->Model_wedding->show();
+			$userId = $this->session->userdata('id');
+
+			$data['undangan'] = $this->Model_wedding->show($userId);
 
 
 			if(isset($_POST['form_wedding'])) {
+				$userId = $this->session->userdata('id');
 				$form_data = array(
 					'kalimat_1' 			=> $_POST['kalimat_1'],
 					'kalimat_2' 			=> $_POST['kalimat_2'],
@@ -60,19 +65,22 @@ class Wedding extends CI_Controller
 					'ket_tempat' 			=> $_POST['ket_tempat'],
 					'alamat_lengkap' 		=> $_POST['alamat_lengkap'],
 					'google_maps' 			=> $_POST['google_maps'],
-					'google_calendar'		=> $_POST['google_calendar'],
-					'google_map_direction'  => $_POST['google_map_direction'],
+					// 'google_calendar'		=> $_POST['google_calendar'],
+					// 'google_map_direction'  => $_POST['google_map_direction'],
 					'kata_pernikahan'		=> $_POST['kata_pernikahan'],
 					'doa_pernikahan' 		=> $_POST['doa_pernikahan']
+					// 'no_rekening' 			=> $_POST['no_rekening'],
+					// 'nama_rekening' 		=> $_POST['nama_rekening'],
+					// 'pemilik_rekening' 		=> $_POST['pemilik_rekening']
 				);
 
-				$this->Model_wedding->update($form_data);
+				$this->Model_wedding->update($form_data, $userId);
 
 				$data['success'] = 'Data Pernikahan telah berhasil diupdate!';
 			}
 
-			$header['setting'] = $this->Model_wedding->get_setting_data();
-			$data['undangan'] = $this->Model_wedding->show();
+			$header['setting'] = $this->Model_wedding->get_setting_data($userId);
+			$data['undangan'] = $this->Model_wedding->show($userId);
 
 			$this->load->view('admin/view_header',$header);
 			$this->load->view('admin/view_wedding', $data);

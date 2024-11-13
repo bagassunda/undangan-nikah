@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Niconne|Seaweed+Script&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore|Niconne|Seaweed+Script&display=swap'); */
 
 body {
   font-family: 'La Belle Aurore', cursive;
@@ -40,7 +40,7 @@ hr.divider {
 
 .heading-style h2 {
   text-align: left !important;
-  font-family: 'Seaweed Script', cursive;
+  /* font-family: /* font-family: 'Seaweed Script', cursive; */; */
   margin-top: 40px;
 }
 
@@ -77,46 +77,46 @@ hr.divider {
 }
 
 #mainNav.navbar-scrolled {
-  background-color: #ffffffcc;
+  /* background-color: #ffffffcc; */
 }
 
 .invitation-style h1 {
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   font-weight: 800;
 }
 
 .invitation-style p {
   margin: 20px 0;
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   font-size: 20px;
 }
 
 .invitation-style h2 {
   font-weight: 700;
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   text-align: center;
 } 
 
 .invitation-style h4 {
   font-weight: 700;
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   text-align: center;
   margin: 25px 10px;
 } 
 
 .date-style h2 {
   margin-top: 50px;
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   font-weight: 700;
 }
 
 .date-style span {
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   font-size: 18px;
 }
 
 .date-wedding-style h1 {
- font-family: 'Seaweed Script', cursive;
+ font-family: /* font-family: 'Seaweed Script', cursive; */;
  font-weight: 800;
 }
 
@@ -129,14 +129,19 @@ hr.divider {
 }
 
 .bg-primary {
-  background-color:rgb(212, 175, 55) !important;
+  /* background-color:rgb(212, 175, 55) !important; */
 }
 
-.page-section2 {
+/* .page-section2 {
   background: linear-gradient(to bottom, rgb(223, 184, 90) 0%, rgba(223, 184, 9, 0.5) 100%), url("../img/bg-masthead2.jpg");
+} */
+
+.page-section2 {
+  /* background: linear-gradient(to bottom, rgb(223, 184, 90) 0%, rgba(223, 184, 9, 0.5) 100%), url("../img/bg-masthead2.jpg"); */
 }
+
 .btn-xl {
- font-family: 'Seaweed Script', cursive;
+ font-family: /* font-family: 'Seaweed Script', cursive; */;
  margin-top: 25px;
  padding: 10px 35px;
  text-transform: none;
@@ -153,20 +158,20 @@ hr.divider {
 
 .invitation-maps h2 {
   margin-bottom: 25px;
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   text-align: center;
   font-weight: 800;
 }
 
 .guestbook-style h2 {
  margin-bottom: 25px;
- font-family: 'Seaweed Script', cursive;
+ font-family: /* font-family: 'Seaweed Script', cursive; */;
  text-align: center;
  font-weight: 800;
 }
 
 .guestbook-style p {
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   text-align: center;
   font-size: 20px;
 }
@@ -182,7 +187,7 @@ hr.divider {
 }
 
 .form-control::placeholder {
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   margin-left: 10px;
 }
 
@@ -213,7 +218,7 @@ hr.divider {
 }
 
 .contact-form .btnContact {
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   width: 50%;
   border: none;
   border-radius: 1rem;
@@ -243,7 +248,7 @@ hr.divider {
   padding: 15px 10px;
   border: 1px solid #eee;
   min-height: 350px;
-  background-image: url("../img/guestbook-card.jpg");
+  /* background-image: url("../img/guestbook-card.jpg"); */
   height: 100%;
   background-position: center;
   background-repeat: round;
@@ -251,12 +256,12 @@ hr.divider {
 }
 
 .box-part h2{
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   margin-top: 10px;
 }
 
 .box-part span{
-  font-family: 'Seaweed Script', cursive;
+  font-family: /* font-family: 'Seaweed Script', cursive; */;
   font-size: 20px;
 }
 .text {

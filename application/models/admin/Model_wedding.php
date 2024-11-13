@@ -9,15 +9,17 @@ class Model_wedding extends CI_Model
 		return $query->first_row('array');
 	}
 
-	public function show()
-	{
-		$query = $this->db->query("SELECT * from tbl_wedding WHERE id=1");
-		return $query->first_row('array');
-	}
+	public function show($userId)
+{
+    $this->db->where('userId', $userId);
+    $query = $this->db->get('tbl_wedding');
+    return $query->first_row('array');
+}
 
-	 public function update($data)
+
+	 public function update($data, $userId)
 	{
-        $this->db->where('id',1);
+        $this->db->where('userId', $userId);
         $this->db->update('tbl_wedding',$data);
     }
 }

@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					<h4>Save the Date</h4>
 
-					<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=NDVna2g4bGJvNGQ4Z3NzcXI5cWw5dTc5M2YgZW5jZXAuc3VyeWFuYWpyQG0&amp;tmsrc=encep.suryanajr%40gmail.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_id.gif"></a>
+					<a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=NDVna2g4bGJvNGQ4Z3NzcXI5cWw5dTc5M2YgZW5jZXAuc3VyeWFuYWpyQG0&amp;tmsrc=encep.suryanajr%40gmail.com"><img border="0" src="assets/img/icon-calendar.gif" style="width : 20px"></a>
 
 				</div>
 			</div>
