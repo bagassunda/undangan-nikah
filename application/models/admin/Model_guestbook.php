@@ -5,7 +5,7 @@ class Model_guestbook extends CI_Model
 {
 	public function get_setting_data()
 	{
-		$query = $this->db->query("SELECT * from tbl_settings WHERE id=1");
+		$query = $this->db->query("SELECT * from tbl_settings WHERE id");
 		return $query->first_row('array');
 	}
 

@@ -51,3 +51,26 @@ ERROR - 2024-11-13 14:13:20 --> 404 Page Not Found: superadmin/Web/index
 ERROR - 2024-11-13 14:13:24 --> Severity: Warning --> Undefined array key "google_calendar" C:\laragon\www\undangan-nikah\application\views\admin\view_wedding.php 188
 ERROR - 2024-11-13 14:13:33 --> Severity: Warning --> Undefined array key "google_calendar" C:\laragon\www\undangan-nikah\application\views\admin\view_wedding.php 188
 ERROR - 2024-11-13 14:49:09 --> 404 Page Not Found: admin/Web/index
+ERROR - 2024-11-13 16:33:08 --> Severity: error --> Exception: Too few arguments to function Model_guestbook::get_setting_data(), 0 passed in C:\laragon\www\undangan-nikah\application\controllers\admin\Invitation.php on line 20 and exactly 1 expected C:\laragon\www\undangan-nikah\application\models\admin\Model_guestbook.php 6
+ERROR - 2024-11-13 16:35:49 --> Query error: Unknown column 'user_id' in 'where clause' - Invalid query: SELECT * FROM tbl_settings WHERE user_id = '1'
+ERROR - 2024-11-13 16:37:54 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:37:55 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:42:33 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:42:33 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:42:50 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:42:53 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 16:42:53 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:16:28 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:16:28 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:58:24 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:58:24 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:59:52 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 17:59:52 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:00:42 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:00:42 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:01:59 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:01:59 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:02:51 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:02:52 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:02:55 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-13 18:02:55 --> 404 Page Not Found: Assets/admin

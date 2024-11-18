@@ -150,10 +150,8 @@ hr.divider {
 
 .wedding-maps iframe {
  margin: 0;
- width: 118.2%;
+ width: 100%;
  position: relative;
- margin-bottom: -5px;
- margin-left: -95px;
 }
 
 .invitation-maps h2 {
@@ -344,9 +342,8 @@ hr.divider {
   }
   .wedding-maps iframe {
    margin: 0;
-   width: 114.5%;
+   width: 100%;
    position: relative;
-   margin-left: -24px;
  }
  .page-section {
   padding: 50px 10px;
@@ -361,10 +358,8 @@ hr.divider {
 @media only screen and (min-width: 600px) {
   .wedding-maps iframe {
    margin: 0;
-   width: 121.5%;
+   width: 100%;
    position: relative;
-   margin-bottom: -5px;
-   margin-left: -120px;
  }
 }
 
