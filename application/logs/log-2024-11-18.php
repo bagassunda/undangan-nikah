@@ -18,3 +18,7 @@ ERROR - 2024-11-18 10:25:31 --> Severity: Warning --> Undefined array key "nama_
 ERROR - 2024-11-18 10:25:32 --> Severity: Warning --> Undefined array key "nama_lengkap" C:\laragon\www\undangan-nikah\application\views\view_open_undangan.php 24
 ERROR - 2024-11-18 10:25:32 --> Severity: Warning --> Undefined array key "nama_lengkap" C:\laragon\www\undangan-nikah\application\views\view_open_undangan.php 24
 ERROR - 2024-11-18 10:25:33 --> Severity: Warning --> Undefined array key "nama_lengkap" C:\laragon\www\undangan-nikah\application\views\view_open_undangan.php 24
+ERROR - 2024-11-18 20:23:20 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-18 20:23:21 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-18 20:23:23 --> 404 Page Not Found: Assets/admin
+ERROR - 2024-11-18 20:23:23 --> 404 Page Not Found: Assets/admin

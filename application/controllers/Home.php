@@ -31,14 +31,21 @@ class Home extends CI_Controller
 
 				$form_data = array(
 					'nama_lengkap' => $_POST['nama_lengkap'],
-					'ucapan' => $_POST['ucapan']
+					'ucapan' => $_POST['ucapan'],
+					'kontak' => $_POST['kontak'],
+					'sosial_media' => $_POST['sosial_media'],
+					'hadir' => $_POST['hadir']
 				);
+
 				$this->Model_home->add($form_data);
 
 				$header['success'] = 'Terimakasih atas semua do’a yang terpanjatkan untuk kebahagiaan dan kesempurnaan pernikahan Kami. Hanya do’a yang dapat Kami sampaikan, semoga semuanya juga bahagia';
 
 				unset($_POST['nama_lengkap']);
 				unset($_POST['ucapan']);
+				unset($_POST['kontak']);
+				unset($_POST['sosial_media']);
+				unset($_POST['hadir']);
 			}
 		}
 
