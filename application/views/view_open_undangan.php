@@ -24,7 +24,6 @@
             font-family: 'Sacramento', serif;
         }
     </style>
-
 </head>
 
 <body>
@@ -36,35 +35,39 @@
     <div class="ui placeholder segment">
         <div class="ui icon header">
             <i class="red heart icon"></i>
-            <?php foreach ($invitation as $item): ?>
+            <?php if ($invitation): ?>
                 <h1>Bagas & Mega</h1>
                 <h2>Kepada Yth. Bapak/Ibu/Sdr/i</h2>
-                <h3><?= htmlspecialchars($item['nama_lengkap']) ?></h3>
+                <h3><?= htmlspecialchars($invitation->nama_lengkap, ENT_QUOTES, 'UTF-8') ?></h3>
+
                 <button id="wdp-button-wrapper" class="ui red button">
                     Buka Undangan
                     <i class="envelope open outline icon" style="margin: 0px;"></i>
                 </button>
-            <?php endforeach; ?>
+            <?php else: ?>
+                <p>Data undangan tidak ditemukan.</p>
+            <?php endif; ?>
         </div>
     </div>
 
     <script>
         $(document).ready(function () {
-            // Saat tombol diklik, setel musik dan pindah halaman
             $('#wdp-button-wrapper').on('click', function () {
                 var music = $('#weddingMusic')[0];
-                music.play().catch(function (error) {
-                    console.warn('Autoplay is blocked by browser:', error);
-                });
+                var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-                // Simpan status pemutaran musik ke localStorage
-                localStorage.setItem('isMusicPlaying', 'true');
+                if (isSafari) {
+                    music.play().catch(function (error) {
+                        console.warn('Autoplay is blocked by browser:', error);
+                    });
+                    localStorage.setItem('isMusicPlaying', 'true');
+                }
 
-                // Alihkan ke halaman baru setelah delay
+
                 setTimeout(function () {
-                    var redirectUrl = "<?= base_url('home?to=' . base64_encode($item['nama_lengkap'])) ?>";
+                    var redirectUrl = <?= json_encode(base_url('home?to=' . base64_encode($invitation->nama_lengkap))) ?>;
                     window.location.href = redirectUrl;
-                }, 500); // 500ms delay
+                }, 500);
             });
         });
     </script>

@@ -15,6 +15,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<title>Wedding of <?php echo $undangan['nama_lengkap_pria']; ?> & <?php echo $undangan['nama_lengkap_wanita']; ?>
 	</title>
 
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+
 	<!-- Font Awesome Icons -->
 	<link href="<?php echo base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 		type="text/css">
@@ -55,7 +59,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		Your browser does not support the audio element.
 	</audio>
 
-
+	<button id="muteButton" class="mute-button" onclick="toggleMute()"
+		style="display: block; position:fixed; right: 10%; bottom:10%; z-index: 111; border:none; background-color: transparent;">
+		<i id="muteIcon" class="music red icon"></i> <!-- Default is Unmuted -->
+	</button>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -89,11 +96,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		</div>
 	</nav>
 
-	<button id="muteButton" class="mute-button" onclick="toggleMute()">
-        <i id="muteIcon" class="fas fa-volume-up"></i> <!-- Default is Unmuted -->
-    </button>
-
-
 	<!-- Masthead -->
 	<header class="masthead">
 		<div class="container h-100">
@@ -123,15 +125,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</div>
 		</div>
 	</header>
-
-	<!-- Elemen Audio -->
-	<!-- <audio controls>
-		<source src="assets/audio/audio1.mp3" type="audio/mp3">
-		Browser Anda tidak mendukung elemen audio.
-	</audio> -->
-
-	<!-- Tombol Mute/Unmute -->
-	<!-- <button id="muteButton">Mute</button> -->
 
 	<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-b533ffa"
 		data-id="b533ffa" data-element_type="column">
@@ -230,11 +223,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 					<hr class="divider light my-4">
 
-					<h4>Save the Date</h4>
+					<br>
+					<h2>Hitung Mundur Menuju Hari Bahagia</h2>
+					<h4 id="countdown-timer" class="timer" style="color:red;"></h4>
 
-					<a target="_blank"
-						href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=NDVna2g4bGJvNGQ4Z3NzcXI5cWw5dTc5M2YgZW5jZXAuc3VyeWFuYWpyQG0&amp;tmsrc=encep.suryanajr%40gmail.com"><img
-							border="0" src="assets/img/icon-calendar.gif" style="width : 20px"></a>
+
 
 				</div>
 			</div>
@@ -512,7 +505,52 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		});
 	</script>
 
-	
+	<script>
+		// Variabel global untuk mengontrol audio
+		var isMuted = false; // Status awal tidak mute
+		var audioElement = document.getElementById('weddingMusic'); // Sesuaikan dengan ID elemen audio Anda
+
+		// Fungsi untuk toggle mute
+		function toggleMute() {
+			// Jika audio sudah mute, unmute
+			if (isMuted) {
+				audioElement.muted = false;
+				isMuted = false;
+				// Ganti ikon ke volume up
+				document.getElementById('muteIcon').classList.remove('fa-volume-mute');
+				document.getElementById('muteIcon').classList.add('fa-volume-up');
+			} else {
+				// Jika audio tidak mute, mute
+				audioElement.muted = true;
+				isMuted = true;
+				// Ganti ikon ke volume mute
+				document.getElementById('muteIcon').classList.remove('fa-volume-up');
+				document.getElementById('muteIcon').classList.add('fa-volume-mute');
+			}
+		}
+
+	</script>
+
+	<script>
+		const countdown = () => {
+			const eventDate = new Date('December 28, 2024 11:00:00').getTime();
+			const now = new Date().getTime();
+			const diff = eventDate - now;
+
+			if (diff > 0) {
+				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+				document.getElementById("countdown-timer").innerHTML = `
+			${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+			} else {
+				document.getElementById("countdown-timer").innerHTML = "Acara Telah Dimulai!";
+			}
+		};
+		setInterval(countdown, 1000);
+	</script>
 
 </body>
 

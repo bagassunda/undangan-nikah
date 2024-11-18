@@ -15,23 +15,6 @@ class Home extends CI_Controller
 		$header['error'] = '';
 		$header['success'] = '';
 
-		// // Ambil parameter 'to' dari URL
-		// if (isset($_GET['to'])) {
-		// 	// Decode parameter 'to'
-		// 	$decoded_id = base64_decode($_GET['to']);
-
-		// 	// Ambil data nama tamu berdasarkan ID dari tabel tbl_invitation
-		// 	$tamu = $this->Model_home->get_guest_by_id($decoded_id);
-
-		// 	if ($tamu) {
-		// 		$header['nama_tamu'] = "Mengundang " . htmlspecialchars($tamu['nama_lengkap']);
-		// 	} else {
-		// 		$header['nama_tamu'] = "Yth. Tamu Undangan";
-		// 	}
-		// } else {
-		// 	$header['nama_tamu'] = "Yth. Tamu Undangan";
-		// }
-
 		if (isset($_POST['form1'])) {
 
 			$valid = 1;
@@ -59,7 +42,9 @@ class Home extends CI_Controller
 			}
 		}
 
-		$header['undangan'] = $this->Model_home->get_undangan_data();
+		$userId = $this->session->userdata('id');
+
+		$header['undangan'] = $this->Model_home->get_undangan_data($userId);
 		$header['guestbook'] = $this->Model_home->get_guestbook_data();
 
 		$this->load->view('view_home', $header);
@@ -67,29 +52,24 @@ class Home extends CI_Controller
 
 	public function openInvitation()
 	{
-		$encodedName = $this->input->get('to'); // Ambil parameter `to` dari URL
+		$encodedName = $this->input->get('to');
 		if (!$encodedName) {
-			show_error('Nama undangan tidak ditemukan.', 400);
+			redirect('home');
 		}
 
-		// Decode base64 untuk mendapatkan nama asli
 		$name = base64_decode($encodedName);
 
-		// Ambil data undangan berdasarkan nama
-		$data['invitation'] = $this->Model_home->get_invitation_by_name($name);
+		$invitation = $this->Model_home->get_invitation_by_name($name);
 
-		// Jika data tidak ditemukan
-		if (empty($data['invitation'])) {
-			show_error('Tidak ada undangan yang ditemukan untuk nama ini.', 404);
+		if (empty($invitation)) {
+			$this->session->set_flashdata('error', 'Undangan tidak ditemukan.');
+			redirect('home');
 		}
 
-		// Load view dan kirim data
+		$data['invitation'] = $invitation;
+
 		$this->load->view('view_open_undangan', $data);
 	}
-
-
-
-
 
 }
 

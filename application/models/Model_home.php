@@ -4,7 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Model_home extends CI_Model
 {
 
-    // Metode untuk mengambil nama tamu dari tabel tbl_invitation berdasarkan ID
     public function get_guest_by_id($id)
     {
         $query = $this->db->get_where('tbl_invitation', ['userId' => $id]);
@@ -13,31 +12,24 @@ class Model_home extends CI_Model
 
     public function get_invitation_by_name($name)
     {
-        $sql = "
-            SELECT 
-                tbl_invitation.nama_lengkap, 
-                tbl_invitation.url, 
-                tbl_wedding.*
-            FROM 
-                tbl_invitation
-            JOIN 
-                tbl_wedding 
-            ON 
-                tbl_invitation.userId = tbl_wedding.userId
-            WHERE 
-                tbl_invitation.nama_lengkap = ?
-            ORDER BY tbl_invitation.id
-        ";
-        $query = $this->db->query($sql, array($name)); // Menggunakan parameter binding untuk keamanan
-        return $query->result_array(); // Mengembalikan semua hasil
+        $this->db->select('*');
+        $this->db->from('tbl_invitation');
+        $this->db->join('tbl_wedding', 'tbl_wedding.userId = tbl_invitation.userId');
+        $this->db->where('tbl_invitation.nama_lengkap', $name);
+        $query = $this->db->get();
+
+        return $query->row();
     }
-    
 
-
-    public function get_undangan_data()
+    public function get_undangan_data($userId)
     {
-        $query = $this->db->query("SELECT * from tbl_wedding WHERE id=1");
-        return $query->first_row('array');
+        $query = $this->db->query("
+        SELECT *
+        FROM tbl_wedding 
+        JOIN tbl_invitation ON tbl_invitation.userId = tbl_wedding.userId
+        WHERE tbl_wedding.userId = ?", array($userId));
+
+        return $query->row_array();
     }
 
     public function get_guestbook_data()

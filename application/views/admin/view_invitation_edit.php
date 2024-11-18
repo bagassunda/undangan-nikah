@@ -47,8 +47,8 @@ if (!$this->session->userdata('id')) {
 					<div class="form-group">
 						<label for="" class="col-sm-2 control-label">URL <span>*</span></label>
 						<div class="col-sm-8">
-							<textarea class="form-control" name="url" style="height:100px;"
-								id="url" readonly><?php echo $invitation['url']; ?></textarea>
+							<textarea class="form-control" name="url" style="height:100px;" id="url"
+								readonly><?php echo $invitation['url']; ?></textarea>
 
 						</div>
 					</div>
@@ -69,13 +69,10 @@ if (!$this->session->userdata('id')) {
 </section>
 
 <script>
-	// Fungsi untuk mengupdate URL dengan base64 encoding nama lengkap
 	function updateUrl() {
 		var namaLengkap = document.getElementById("nama_lengkap").value;
 		if (namaLengkap) {
-			// Mengencode nama lengkap menjadi base64
 			var encodedUrl = "http://localhost/undangan-nikah/home/openInvitation?to=" + btoa(namaLengkap);
-			// Menyimpan hasil encode ke field URL
 			document.getElementById("url").value = encodedUrl;
 		}
 	}

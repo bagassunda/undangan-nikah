@@ -60,6 +60,7 @@ class Invitation extends CI_Controller
 				}
 
 				if ($valid == 1) {
+					$userId = $this->session->userdata('id');
 
 					// Encode nama lengkap menjadi URL base64
 					$encoded_url = "http://localhost/undangan-nikah/home/openInvitation?to=" . base64_encode($_POST['nama_lengkap']);
@@ -67,7 +68,7 @@ class Invitation extends CI_Controller
 					$form_data = array(
 						'nama_lengkap' => $_POST['nama_lengkap'],
 						'url' => $encoded_url,
-						'userId' => 1
+						'userId' => $userId
 					);
 					$this->Model_invitation->add($form_data);
 
@@ -96,7 +97,6 @@ class Invitation extends CI_Controller
 	{
 		if ($this->session->userdata('id')) {
 
-			// If there is no service in this id, then redirect
 			$tot = $this->Model_invitation->invitation_check($id);
 			if (!$tot) {
 				redirect(base_url() . 'admin/invitation');
@@ -121,10 +121,8 @@ class Invitation extends CI_Controller
 				}
 
 				if ($valid == 1) {
-					// Encode nama lengkap menjadi URL base64
 					$encoded_url = "http://localhost/undangan-nikah/home/openInvitation?to=" . base64_encode($_POST['nama_lengkap']);
 
-					// Updating Data
 					$form_data = array(
 						'nama_lengkap' => $_POST['nama_lengkap'],
 						'url' => $encoded_url

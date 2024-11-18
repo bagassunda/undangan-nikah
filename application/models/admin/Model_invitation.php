@@ -11,7 +11,7 @@ class Model_invitation extends CI_Model
 
     public function show($userId)
     {
-        $sql = "SELECT * FROM tbl_invitation WHERE userId = 1 ORDER BY id ASC";
+        $sql = "SELECT * FROM tbl_invitation WHERE userId = ? ORDER BY id ASC";
         $query = $this->db->query($sql, array($userId));
         return $query->result_array();
     }
