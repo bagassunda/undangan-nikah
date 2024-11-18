@@ -50,7 +50,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		</div>
 	<?php endif; ?>
 
-	
+	<audio id="weddingMusic" autoplay loop>
+		<source src="<?php echo base_url(); ?>assets/audio/audio1.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+
+
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -83,6 +88,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</div>
 		</div>
 	</nav>
+
+	<button id="muteButton" class="mute-button" onclick="toggleMute()">
+        <i id="muteIcon" class="fas fa-volume-up"></i> <!-- Default is Unmuted -->
+    </button>
 
 
 	<!-- Masthead -->
@@ -490,34 +499,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		}
 	</script>
 
-	<script>
-		//var z = document.querySelector('#wdp-button-wrapper');
-		//z.addEventListener("click", function(event) {
 
-		//Neo - Added New Conditional Statement for select Audio or Youtube
-		var isYT = false;
-		jQuery("#wdp-button-wrapper").on("click", "button", function () {
-			// var isYT = false;
-			playAudio();
-			if (document.body.contains(document.getElementById("song"))) {
-				document.getElementById("song").play();
-				isYT = false;
-			} else {
-				isYT = true;
-				player.playVideo();
-			}
-			function playAudio() {
-				var isYT = false;
-				if (document.body.contains(document.getElementById("song"))) {
-					document.getElementById("song").play();
-					isYT = false;
-				} else {
-					isYT = true;
-					player.playVideo();
-				}
+	<script>
+		$(document).ready(function () {
+			// Memeriksa jika musik sebelumnya sedang diputar
+			if (localStorage.getItem('isMusicPlaying') === 'true') {
+				var music = $('#weddingMusic')[0];
+				music.play().catch(function (error) {
+					console.warn('Autoplay is blocked by browser:', error);
+				});
 			}
 		});
 	</script>
+
+	
 
 </body>
 
